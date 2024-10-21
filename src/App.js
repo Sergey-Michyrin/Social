@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./components/Header/Header.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Profile from "./components/Profile/Profile.jsx";
-import Message from "./components/Message/Message.jsx";
+import Dialogs from "./components/Dialogs/Dialogs.jsx";
 import Users from "./components/Users/Users.jsx";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -15,7 +15,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Profile} />
           <Route path="/profile" component={Profile} />
-          <Route path="/message" component={Message} />
+          <Route path="/Message" component={Dialogs} />
           <Route path="/users" component={Users} />
         </Switch>
       </div>
@@ -24,4 +24,4 @@ function App() {
 }
 
 export default App;
-// Необходимо создать компонент диалоги. Внутри просто див с текстом. Создать комп с друзьями. Сделать переход как backend;
+// Залить на гитхаб; Компонент с постами сделать также с помощью data вывести циклом 3 поста; в данных img, name, text. + читать 4 и 3 главы про пропсы

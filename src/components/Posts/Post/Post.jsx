@@ -1,13 +1,13 @@
-import user from "../../../img/User.jpg"
+
 import style from "./Post.module.css";
 
 
-function Post({text}) {
+function Post({text, img}) {
     return (
   <>
         <div className={style.post}>
         <div className={style.img_cont}>
-        <img src={user} className={style.userImg} alt="" />
+        <img src={img} className={style.userImg} alt="" />
         <span>Меладзе</span>
         </div>
         <p className={style.textMessage}>{text}</p>
@@ -15,6 +15,21 @@ function Post({text}) {
       </div>
       
       
+  
+      </>
+  
+  
+  
+  )
+  }
+  
+
+  export default Post;
+
+
+
+
+
       {/* <div className={style.post}>
         <div className={style.img_cont}>
         <img src={user} className={style.userImg} alt="" />
@@ -35,12 +50,3 @@ function Post({text}) {
         <div className={style.under}></div>
       </div>
        */}
-      </>
-  
-  
-  
-  )
-  }
-  
-
-  export default Post;

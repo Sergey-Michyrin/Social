@@ -1,10 +1,13 @@
 import React from 'react';
 import DialogItem from "./DialogItem/DialogItem";
 import Header from "../Header/Header";
-import style from './Message.module.css';
+import style from './Dialogs.module.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Messages from "./Messages/Messages"
+let data = [{name:"Валерий", id:1},{name:"Денис", id:2},{name:"Богдан", id:3}];
+let messages = [{message:"Привет", id:1},{message:"гол", id:2},{message:"рессентимент", id:3}];
 
-function Message() {
+function Dialogs() {
   return (
     <div className={style.main}>
       <div>
@@ -12,9 +15,13 @@ function Message() {
         <h1>Страница сообщений</h1>
     
         <div className={style.friends}>
-          <DialogItem name={"Валерий"} id={1}/>
-          <DialogItem name={"Денис"} id={2}/>
-          <DialogItem name={"Богдан"} id={3}/>
+          
+          {data.map((i, idx) => {
+            return <DialogItem key={idx}  name={i.name} id={i.id}/>
+            
+                          }
+          )
+          }
         </div>
 
       </div>
@@ -23,15 +30,9 @@ function Message() {
     <div className={style.message}>
 
       <div className={style.letters}>
-        <p>Как дела?</p>
-        <p>Го на марс</p>
-        <p>Где мой чип?</p>
-        <p>Где мой чип?</p>
-        <p>Где мой чип?</p>
-        <p>Где мой чип?</p>
-        <p>Где мой чип?</p>
-        <p>Где мой чип?</p>
-        <p>Где мой чип?</p>
+      {   messages.map((i, idx) => {
+            return <Messages key={idx} text={i.message} id={i.id}/>})
+      }
       </div>
 
       
@@ -53,4 +54,4 @@ function Message() {
   );
 }
 
-export default Message;
+export default Dialogs;
