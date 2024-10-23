@@ -6,17 +6,20 @@ import Dialogs from "./components/Dialogs/Dialogs.jsx";
 import Users from "./components/Users/Users.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-function App() {
+function App({ dialog_data, dialog_messages, posts_posts }) {
   return (
     <BrowserRouter>
       <div className="container">
         <Header />
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Profile />} />
-          <Route path="/profile" celement={<Profile />} />
-          <Route path="/Message" element={<Dialogs />} />
-          <Route path="/users" element={<Users />} />
+          <Route exact path="/" element={<Profile posts={posts_posts} />} />
+          <Route path="/Profile" element={<Profile posts={posts_posts} />} />
+          <Route
+            path="/Message"
+            element={<Dialogs data={dialog_data} messages={dialog_messages} />}
+          />
+          <Route path="/Users" element={<Users />} />
         </Routes>
       </div>
     </BrowserRouter>
@@ -24,4 +27,4 @@ function App() {
 }
 
 export default App;
-// Залить на гитхаб; Компонент с постами сделать также с помощью data вывести циклом 3 поста; в данных img, name, text. + читать 4 и 3 главы про пропсы
+// ЛАйки и :

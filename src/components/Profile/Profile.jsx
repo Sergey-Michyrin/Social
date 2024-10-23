@@ -2,7 +2,7 @@ import style from "./Profile.module.css";
 import user from "../../img/User.jpg";
 import Posts from "../Posts/Posts.jsx";
 
-function Profile() {
+function Profile({posts}) {
   return (
   <div className={style.profile}>
     <div className={style.profileHeader}>
@@ -21,7 +21,7 @@ function Profile() {
       </div>
 
 
-      <Posts/>
+      <Posts posts={posts}/>
 
 
 

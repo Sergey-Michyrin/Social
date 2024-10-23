@@ -4,10 +4,9 @@ import Header from "../Header/Header";
 import style from './Dialogs.module.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Messages from "./Messages/Messages"
-let data = [{name:"Валерий", id:1},{name:"Денис", id:2},{name:"Богдан", id:3}];
-let messages = [{message:"Привет", id:1},{message:"гол", id:2},{message:"рессентимент", id:3}];
 
-function Dialogs() {
+
+function Dialogs({data, messages}) {
   return (
     <div className={style.main}>
       <div>

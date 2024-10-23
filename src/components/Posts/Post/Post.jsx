@@ -2,7 +2,7 @@
 import style from "./Post.module.css";
 
 
-function Post({text, img}) {
+function Post({text, img, likes}) {
     return (
   <>
         <div className={style.post}>
@@ -11,6 +11,7 @@ function Post({text, img}) {
         <span>Меладзе</span>
         </div>
         <p className={style.textMessage}>{text}</p>
+        <p>Число лайков: {likes}</p>
         <div className={style.under}></div>
       </div>
       

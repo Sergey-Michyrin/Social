@@ -10,7 +10,7 @@ function Navbar() {
       <ul className={style.friendList}>
         <li className={style.friendItem}><NavLink  to="/Message" className={style.friendLink}>Message</NavLink></li>
         <li className={style.friendItem}><NavLink  to="/Users" className={style.friendLink}>Users</NavLink></li>
-        <li className={style.friendItem}><NavLink  to='/Profile' className={style.friendLink}>Profile</NavLink></li>
+        <li className={style.friendItem}><NavLink  to='/' className={style.friendLink}>Profile</NavLink></li>
        
       </ul>
     </nav>
