@@ -1,0 +1,45 @@
+.navbar {
+  padding: 10px;
+  min-height: 74vh;
+  display: flex;
+  position: relative;
+}
+
+.title {
+  color: #1877f2;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.friendList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  align-self: center;
+  height: 50%;
+  position: fixed;
+  background-color: rgb(0, 255, 170);
+  width: 318px;
+  top: 450px;
+  bottom: 400px;
+  left: 10px;
+}
+
+.friendItem {
+  margin-bottom: 10px;
+}
+
+.friendLink {
+  color: #050505;
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.friendLink:hover {
+  background-color: #e4e6eb;
+}

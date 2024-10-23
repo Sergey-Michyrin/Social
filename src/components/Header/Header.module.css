@@ -1,0 +1,24 @@
+.header {
+  background-color: rgb(0, 255, 170);
+  grid-area: first;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inf {
+  margin-right: 100px;
+}
+
+.nick {
+  text-align: center;
+}
+
+.userImg {
+  border-radius: 50%;
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+}
