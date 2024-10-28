@@ -19,7 +19,7 @@ function App({ dialog_data, dialog_messages, posts_posts }) {
             path="/Message"
             element={<Dialogs data={dialog_data} messages={dialog_messages} />}
           />
-          <Route path="/Users" element={<Users />} />
+          <Route path="/Users" element={<Users users={dialog_data} />} />
         </Routes>
       </div>
     </BrowserRouter>
@@ -27,4 +27,4 @@ function App({ dialog_data, dialog_messages, posts_posts }) {
 }
 
 export default App;
-// ЛАйки и :
+// Друзья отдельным компонентом;

@@ -1,5 +1,6 @@
 
 import style from "./Post.module.css";
+import like_png from "../../../img/like2.png";
 
 
 function Post({text, img, likes}) {
@@ -11,7 +12,10 @@ function Post({text, img, likes}) {
         <span>Меладзе</span>
         </div>
         <p className={style.textMessage}>{text}</p>
+        <div className={style.likes}>
         <p>Число лайков: {likes}</p>
+        <img src={like_png} alt="" />
+        </div>
         <div className={style.under}></div>
       </div>
       

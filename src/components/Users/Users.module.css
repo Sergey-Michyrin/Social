@@ -1,0 +1,26 @@
+.friends {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: blueviolet;
+  border-radius: 20px;
+  margin-top: 20px;
+  max-height: 90vh;
+  overflow-y: scroll;
+  padding-left: 90px;
+  margin-top: 40px;
+}
+
+.friend {
+  margin-top: 30px;
+}
+
+.friend p {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+
+.friend img {
+  border-radius: 20px;
+}
