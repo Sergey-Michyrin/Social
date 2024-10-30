@@ -7,7 +7,6 @@ import Users from "./components/Users/Users.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App({ dialog_data, dialog_messages, posts_posts, addPost }) {
-  console.log(dialog_data);
   return (
     <BrowserRouter>
       <div className="container">
@@ -35,4 +34,4 @@ function App({ dialog_data, dialog_messages, posts_posts, addPost }) {
 }
 
 export default App;
-// Друзья через state отдельно; Отдельно компонент User через map;
+// Друзья через state отдельно; Отдельно компонент User через map; Аналогично добвить возможность добавлять диалоги через state

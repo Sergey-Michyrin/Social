@@ -1,22 +1,23 @@
 import s from "../img/User.jpg"
-
+import ReRender from "../Render";
+let count = 3;
 let state = {
     // Первый комонент
     posts: [{ 
             text: "Привет",
-            id: 1,
+            id: 0,
             img: s,
             likes: 1861
         },
         {
             text: "гол",
-            id: 2,
+            id: 1,
             img: s,
             likes: 33
         },
         {
             text: "рессентимент",
-            id: 3,
+            id: 2,
             img: s,
             likes: 1612
         },
@@ -66,9 +67,12 @@ let state = {
 };
 
 export let addPost = (text)=>{
-    let newPost = {text:text, img:"", id:0, likes:0};
-    state.posts.push(newPost);
-    console.log(1);
+    count++;
+    console.log(state.posts);
+    let newPost = {text:text, img:s, id:count, likes:0};
+    state.posts.unshift(newPost);
+    ReRender(state);
+    
 
 
 

@@ -6,16 +6,16 @@ let text = React.createRef();
 
 
 function Posts({posts, addPost}) {
-  // let add_post = ()=>{
-  //   addPost(text.current.value);
-  // };
+  let add_post = ()=>{
+    addPost(text.current.value);
+  };
   
   return (
 
  <div className={style.posts}>
  <p>Мои посты</p>
 <input type="text" ref = {text} placeholder="Введите текст поста"/>
-<button  >Опубликовать пост</button>
+<button onClick={add_post} >Опубликовать пост</button>
 
 
 {posts.map((i, idx) => {
