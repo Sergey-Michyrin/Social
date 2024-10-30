@@ -1,6 +1,7 @@
 import React from 'react';
 import style from "./Navbar.module.css";
 import {NavLink} from "react-router-dom"
+import BestFriends from "./BestFreinds/BestFriends";
 
 function Navbar() {
  
@@ -13,6 +14,8 @@ function Navbar() {
         <li className={style.friendItem}><NavLink  to='/' className={style.friendLink}>Profile</NavLink></li>
        
       </ul>
+
+    <BestFriends/>
     </nav>
   )
 }

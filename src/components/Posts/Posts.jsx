@@ -1,18 +1,25 @@
 import style from "./Posts.module.css";
 import Post from "./Post/Post";
+import React from "react"
+import {createRef}  from "react"
+let text = React.createRef();
 
 
-
-function Posts({posts}) {
+function Posts({posts, addPost}) {
+  // let add_post = ()=>{
+  //   addPost(text.current.value);
+  // };
+  
   return (
 
  <div className={style.posts}>
  <p>Мои посты</p>
-<input type="text" />
-<button>Опубликовать пост</button>
+<input type="text" ref = {text} placeholder="Введите текст поста"/>
+<button  >Опубликовать пост</button>
 
 
 {posts.map((i, idx) => {
+
             return <Post key={idx} text={i.text} img={i.img} likes={i.likes}/>
             
                           }

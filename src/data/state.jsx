@@ -65,5 +65,15 @@ let state = {
 
 };
 
+export let addPost = (text)=>{
+    let newPost = {text:text, img:"", id:0, likes:0};
+    state.posts.push(newPost);
+    console.log(1);
+
+
+
+}
+
+
 export default state;
 

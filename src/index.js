@@ -5,6 +5,7 @@ import s from "./img/User.jpg";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import data from "../src/data/state.jsx";
+import { addPost } from "../src/data/state.jsx";
 
 // Dialog
 
@@ -17,6 +18,7 @@ root.render(
       dialog_data={data.dialogs_data.data}
       dialog_messages={data.dialogs_data.messages}
       posts_posts={data.posts}
+      addPost={addPost}
     />
   </React.StrictMode>
 );

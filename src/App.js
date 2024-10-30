@@ -6,15 +6,23 @@ import Dialogs from "./components/Dialogs/Dialogs.jsx";
 import Users from "./components/Users/Users.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-function App({ dialog_data, dialog_messages, posts_posts }) {
+function App({ dialog_data, dialog_messages, posts_posts, addPost }) {
+  console.log(dialog_data);
   return (
     <BrowserRouter>
       <div className="container">
         <Header />
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Profile posts={posts_posts} />} />
-          <Route path="/Profile" element={<Profile posts={posts_posts} />} />
+          <Route
+            exact
+            path="/"
+            element={<Profile posts={posts_posts} addPost={addPost} />}
+          />
+          <Route
+            path="/Profile"
+            element={<Profile posts={posts_posts} addPost={addPost} />}
+          />
           <Route
             path="/Message"
             element={<Dialogs data={dialog_data} messages={dialog_messages} />}
@@ -27,4 +35,4 @@ function App({ dialog_data, dialog_messages, posts_posts }) {
 }
 
 export default App;
-// Друзья отдельным компонентом;
+// Друзья через state отдельно; Отдельно компонент User через map;
