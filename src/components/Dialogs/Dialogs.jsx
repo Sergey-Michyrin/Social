@@ -3,10 +3,21 @@ import DialogItem from "./DialogItem/DialogItem";
 import Header from "../Header/Header";
 import style from './Dialogs.module.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Messages from "./Messages/Messages"
+import Messages from "./Messages/Messages";
+import {createRef}  from "react"
+let text = React.createRef();
 
+let text_2="Привет, как дела?";
 
-function Dialogs({data, messages}) {
+function Dialogs({data, messages, addMessages}) {
+      
+      let add_messages = ()=>{
+            if(text.current.value.length >=2){
+                  addMessages(text.current.value);
+            }
+
+            
+          };
   return (
     <div className={style.main}>
       <div>
@@ -32,6 +43,7 @@ function Dialogs({data, messages}) {
       {   messages.map((i, idx) => {
             return <Messages key={idx} text={i.message} id={i.id}/>})
       }
+      
       </div>
 
       
@@ -39,8 +51,9 @@ function Dialogs({data, messages}) {
       
 
       <div className={style.send}>
-        <input type="text" placeholder='Напишите текст сообщения' />
-        <button>Отправить</button>
+            
+        <input ref = {text} type="text" placeholder='Напишите текст сообщения' />
+        <button onClick={add_messages}>Отправить</button>
       </div>
 
     </div>

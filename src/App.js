@@ -6,12 +6,18 @@ import Dialogs from "./components/Dialogs/Dialogs.jsx";
 import Users from "./components/Users/Users.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-function App({ dialog_data, dialog_messages, posts_posts, addPost }) {
+function App({
+  dialog_data,
+  dialog_messages,
+  posts_posts,
+  addPost,
+  addMessages,
+}) {
   return (
     <BrowserRouter>
       <div className="container">
         <Header />
-        <Navbar />
+        {<Navbar friends={dialog_data} />}
         <Routes>
           <Route
             exact
@@ -24,7 +30,13 @@ function App({ dialog_data, dialog_messages, posts_posts, addPost }) {
           />
           <Route
             path="/Message"
-            element={<Dialogs data={dialog_data} messages={dialog_messages} />}
+            element={
+              <Dialogs
+                data={dialog_data}
+                messages={dialog_messages}
+                addMessages={addMessages}
+              />
+            }
           />
           <Route path="/Users" element={<Users users={dialog_data} />} />
         </Routes>

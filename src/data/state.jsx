@@ -1,6 +1,7 @@
 import s from "../img/User.jpg"
 import ReRender from "../Render";
-let count = 3;
+let countPost = 3;
+let countMessages = 3;
 let state = {
     // Первый комонент
     posts: [{ 
@@ -35,7 +36,7 @@ let state = {
     dialogs_data:{
         
         data: [{
-            name: "Валерий",
+            name: "Валерssssssssss",
             id: 1
         },
         {
@@ -49,15 +50,15 @@ let state = {
         ],
 
         messages: [{
-            message: "Привет",
+            message: "Го",
             id: 1
         },
         {
-            message: "гол",
+            message: "й",
             id: 2
         },
         {
-            message: "рессентимент",
+            message: " просто",
             id: 3
         }
     ]
@@ -67,10 +68,22 @@ let state = {
 };
 
 export let addPost = (text)=>{
-    count++;
+    countPost++;
     console.log(state.posts);
-    let newPost = {text:text, img:s, id:count, likes:0};
+    let newPost = {text:text, img:s, id:countPost, likes:0};
     state.posts.unshift(newPost);
+    ReRender(state);
+    
+
+
+
+}
+
+export let addMessages = (text)=>{
+    countMessages++;
+    // console.log(state.posts);
+    let newMessages = {message:text,  id:countMessages};
+    state.dialogs_data.messages.push(newMessages);
     ReRender(state);
     
 

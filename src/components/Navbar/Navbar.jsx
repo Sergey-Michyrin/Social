@@ -3,7 +3,7 @@ import style from "./Navbar.module.css";
 import {NavLink} from "react-router-dom"
 import BestFriends from "./BestFreinds/BestFriends";
 
-function Navbar() {
+function Navbar({friends}) {
  
 
   return (
@@ -15,7 +15,7 @@ function Navbar() {
        
       </ul>
 
-    <BestFriends/>
+    <BestFriends friends={friends}/>
     </nav>
   )
 }

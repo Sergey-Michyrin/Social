@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { addPost } from "../src/data/state.jsx";
+import { addMessages } from "../src/data/state.jsx";
 
 // Dialog
 
@@ -17,6 +18,7 @@ let ReRender = (data) => {
         dialog_messages={data.dialogs_data.messages}
         posts_posts={data.posts}
         addPost={addPost}
+        addMessages={addMessages}
       />
     </React.StrictMode>
   );

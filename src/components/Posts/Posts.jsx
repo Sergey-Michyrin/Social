@@ -7,7 +7,10 @@ let text = React.createRef();
 
 function Posts({posts, addPost}) {
   let add_post = ()=>{
-    addPost(text.current.value);
+    if(text.current.value.length >=50){
+
+      addPost(text.current.value);
+}
   };
   
   return (
