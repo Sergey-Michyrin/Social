@@ -12,6 +12,8 @@ function App({
   posts_posts,
   addPost,
   addMessages,
+  PostsChange,
+  posts_text,
 }) {
   return (
     <BrowserRouter>
@@ -22,11 +24,25 @@ function App({
           <Route
             exact
             path="/"
-            element={<Profile posts={posts_posts} addPost={addPost} />}
+            element={
+              <Profile
+                posts={posts_posts}
+                addPost={addPost}
+                PostsChange={PostsChange}
+                posts_text={posts_text}
+              />
+            }
           />
           <Route
             path="/Profile"
-            element={<Profile posts={posts_posts} addPost={addPost} />}
+            element={
+              <Profile
+                posts={posts_posts}
+                addPost={addPost}
+                PostsChange={PostsChange}
+                posts_text={posts_text}
+              />
+            }
           />
           <Route
             path="/Message"

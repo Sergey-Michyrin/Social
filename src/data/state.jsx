@@ -4,7 +4,8 @@ let countPost = 3;
 let countMessages = 3;
 let state = {
     // Первый комонент
-    posts: [{ 
+    posts:{
+        posts_data: [{ 
             text: "Привет",
             id: 0,
             img: s,
@@ -29,6 +30,10 @@ let state = {
             likes: 1917
         }
     ],
+
+    post_text:"Hello"
+
+    },
 
 
 
@@ -71,7 +76,7 @@ export let addPost = (text)=>{
     countPost++;
     console.log(state.posts);
     let newPost = {text:text, img:s, id:countPost, likes:0};
-    state.posts.unshift(newPost);
+    state.posts.posts_data.unshift(newPost);
     ReRender(state);
     
 
@@ -91,6 +96,15 @@ export let addMessages = (text)=>{
 
 }
 
+
+export let PostsChange = (text)=>{
+    state.posts.post_text= text
+ 
+    console.log(text);
+    ReRender(state);
+
+
+}
 
 export default state;
 

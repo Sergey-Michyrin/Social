@@ -1,3 +1,8 @@
 .cont {
   width: 100%;
 }
+
+.cont p {
+  max-width: 100%;
+  padding-right: 10px;
+}
