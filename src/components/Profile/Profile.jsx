@@ -1,5 +1,4 @@
 import style from "./Profile.module.css";
-import user from "../../img/User.jpg";
 import Posts from "../Posts/Posts.jsx";
 
 function Profile({posts, addPost, PostsChange, posts_text}) {

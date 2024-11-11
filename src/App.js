@@ -14,6 +14,8 @@ function App({
   addMessages,
   PostsChange,
   posts_text,
+  MessageChange,
+  text_message,
 }) {
   return (
     <BrowserRouter>
@@ -51,6 +53,8 @@ function App({
                 data={dialog_data}
                 messages={dialog_messages}
                 addMessages={addMessages}
+                MessageChange={MessageChange}
+                text_message={text_message}
               />
             }
           />
@@ -62,4 +66,4 @@ function App({
 }
 
 export default App;
-// Друзья через state отдельно; Отдельно компонент User через map; Аналогично добвить возможность добавлять диалоги через state
+// Попытаться решить проблему с inputom и текстом;

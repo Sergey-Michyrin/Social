@@ -7,22 +7,27 @@ let text = React.createRef();
 
 function Posts({posts, addPost, PostsChange, posts_text}) {
   
-  let add_post = ()=>{
+let add_post = ()=>{
     if(text.current.value.length >=50){
-
       addPost(text.current.value);
+      text.current.value = "";
+    }
+};
+               
+let posts_change = ()=>{
+  PostsChange(text.current.value);
 }
-  };
-  let posts_change = ()=>{
-    PostsChange("wdwdwwd");
-}
-  ;
+  
+  
+  
+  
+  
+  
   
   return (
-
  <div className={style.posts}>
  <p>Мои посты</p>
-<input onChange={posts_change} type="text" ref = {text} placeholder="Введите текст поста (не менее 50 символов)" value={posts_text}/>
+<textarea  onChange={posts_change} type="text" ref = {text} placeholder="Введите текст поста (не менее 50 символов)" value={posts_text}/>
 <button onClick={add_post} >Опубликовать пост</button>
 
 

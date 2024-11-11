@@ -66,7 +66,9 @@ let state = {
             message: " просто",
             id: 3
         }
-    ]
+    ],
+
+        text_message: ""
 
     }
 
@@ -86,7 +88,7 @@ export let addPost = (text)=>{
 
 export let addMessages = (text)=>{
     countMessages++;
-    // console.log(state.posts);
+    
     let newMessages = {message:text,  id:countMessages};
     state.dialogs_data.messages.push(newMessages);
     ReRender(state);
@@ -98,9 +100,18 @@ export let addMessages = (text)=>{
 
 
 export let PostsChange = (text)=>{
-    state.posts.post_text= text
+    state.posts.post_text = text
  
-    console.log(text);
+
+    ReRender(state);
+
+
+}
+
+export let MessageChange = (text)=>{
+    state.dialogs_data.text_message = text
+ 
+ 
     ReRender(state);
 
 
@@ -108,3 +119,4 @@ export let PostsChange = (text)=>{
 
 export default state;
 
+// текст для инпута

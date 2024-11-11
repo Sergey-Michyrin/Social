@@ -5,18 +5,28 @@ import style from './Dialogs.module.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Messages from "./Messages/Messages";
 import {createRef}  from "react"
+
+
 let text = React.createRef();
 
-let text_2="Привет, как дела?";
 
-function Dialogs({data, messages, addMessages}) {
-      
+
+function Dialogs({data, messages, addMessages, MessageChange, text_message}) {
       let add_messages = ()=>{
+            console.log(text_message); 
             if(text.current.value.length >=2){
                   addMessages(text.current.value);
+                  text_message="";
+                  console.log(text_message); 
+                  text.current.value = text_message;
             }
+  
+           
+           
+          };
 
-            
+          let message_change = ()=>{
+            MessageChange(text.current.value);
           };
   return (
     <div className={style.main}>
@@ -52,7 +62,7 @@ function Dialogs({data, messages, addMessages}) {
 
       <div className={style.send}>
             
-        <input ref = {text} type="text" placeholder='Напишите текст сообщения' />
+        <textarea onChange={message_change} type="text" ref = {text} placeholder="Напишите текст" value={text_message} />
         <button onClick={add_messages}>Отправить</button>
       </div>
 

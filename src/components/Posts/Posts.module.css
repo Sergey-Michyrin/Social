@@ -59,12 +59,13 @@
   font-size: 35px;
 }
 
-.posts input {
+.posts textarea {
   width: 30%;
   margin-left: auto;
   margin-right: auto;
   padding: 120px 20px;
   font-size: 25px;
+  resize: vertical;
 }
 
 .posts button {
