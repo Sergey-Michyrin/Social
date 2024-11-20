@@ -9,25 +9,33 @@ let state = {
             text: "Привет",
             id: 0,
             img: s,
-            likes: 1861
+            likes: 1861,
+            seeing: true,
+            dop_text: "Общий доступ"
         },
         {
             text: "гол",
             id: 1,
             img: s,
-            likes: 33
+            likes: 33,
+            seeing: true,
+            dop_text: "Общий доступ"
         },
         {
             text: "рессентимент",
             id: 2,
             img: s,
-            likes: 1612
+            likes: 1612,
+            seeing: true,
+            dop_text: "Общий доступ"
         },
         {
             text: "Проверка",
             id: 3,
             img: s,
-            likes: 1917
+            likes: 1917,
+            seeing: true,
+            dop_text: "Общий доступ"
         }
     ],
 
@@ -74,11 +82,19 @@ let state = {
 
 };
 
-export let addPost = (text)=>{
+export let addPost = (text, seeing)=>{
     countPost++;
-    console.log(state.posts);
-    let newPost = {text:text, img:s, id:countPost, likes:0};
+    let dop_text;
+    if (seeing){
+        dop_text= "Общий доступ";
+    }
+    else{
+        dop_text= "Совершено секретно";
+    }
+    // console.log(state.posts);
+    let newPost = {text:text, img:s, id:countPost, likes:0, seeing:seeing, dop_text:dop_text};
     state.posts.posts_data.unshift(newPost);
+    // console.log(state.posts.posts_data[0]);
     ReRender(state);
     
 

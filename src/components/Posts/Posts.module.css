@@ -131,3 +131,48 @@
   border-radius: 4px;
   margin-top: 20px;
 }
+
+.checkbox_cont {
+  height: 80px;
+  position: relative;
+  width: 400px;
+  margin-top: 30px;
+}
+
+.checkbox_cont input {
+  position: absolute;
+  z-index: 10;
+
+  width: 20%;
+  height: 100%;
+  right: 0px;
+}
+.checkbox_cont label {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  color: black;
+}
+
+.radio_box {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio_box div {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+  align-items: center;
+}
+
+.radio_box label {
+  margin-left: 40px;
+  font-size: 40px;
+}
+
+.radio_box input {
+  width: 100px;
+  height: 100px;
+}

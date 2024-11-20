@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DialogItem from "./DialogItem/DialogItem";
 import Header from "../Header/Header";
 import style from './Dialogs.module.css';
@@ -12,13 +12,13 @@ let text = React.createRef();
 
 
 function Dialogs({data, messages, addMessages, MessageChange, text_message}) {
+  const [text_mess, setText_mess] = useState("");
       let add_messages = ()=>{
-            console.log(text_message); 
             if(text.current.value.length >=2){
                   addMessages(text.current.value);
-                  text_message="";
-                  console.log(text_message); 
-                  text.current.value = text_message;
+                
+                  // MessageChange(text.current.value = "");
+                  setText_mess(text.current.value="");
             }
   
            
@@ -26,7 +26,8 @@ function Dialogs({data, messages, addMessages, MessageChange, text_message}) {
           };
 
           let message_change = ()=>{
-            MessageChange(text.current.value);
+            // MessageChange(text.current.value);
+            setText_mess(text.current.value);
           };
   return (
     <div className={style.main}>
@@ -62,7 +63,7 @@ function Dialogs({data, messages, addMessages, MessageChange, text_message}) {
 
       <div className={style.send}>
             
-        <textarea onChange={message_change} type="text" ref = {text} placeholder="Напишите текст" value={text_message} />
+        <textarea onChange={message_change} type="text" ref = {text} placeholder="Напишите текст" value={text_mess} />
         <button onClick={add_messages}>Отправить</button>
       </div>
 

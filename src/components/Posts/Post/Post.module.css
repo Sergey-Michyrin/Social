@@ -139,3 +139,11 @@
   width: 100px;
   height: 100px;
 }
+
+.dop_text {
+  width: 100%;
+}
+
+.dop_text p {
+  color: red;
+}
