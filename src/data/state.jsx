@@ -1,5 +1,5 @@
 import s from "../img/User.jpg"
-import ReRender from "../Render";
+// import ReRender from "../Render";
 let countPost = 3;
 let countMessages = 3;
 let state = {
@@ -39,7 +39,7 @@ let state = {
         }
     ],
 
-    post_text:"Hello"
+    post_text:"Aboba"
 
     },
 
@@ -81,6 +81,14 @@ let state = {
     }
 
 };
+
+
+let ReRender = (state) => {
+    console.log("Заглушка");
+}
+export let Subscribe = (observer) => {
+   ReRender=observer;
+}
 
 export let addPost = (text, seeing)=>{
     countPost++;

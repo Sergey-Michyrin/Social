@@ -135,12 +135,14 @@
 .checkbox_cont {
   height: 80px;
   position: relative;
-  width: 400px;
+  width: 22%;
   margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .checkbox_cont input {
-  position: absolute;
   z-index: 10;
 
   width: 20%;
@@ -148,10 +150,8 @@
   right: 0px;
 }
 .checkbox_cont label {
-  position: absolute;
+  width: fit-content;
 
-  width: 100%;
-  height: 100%;
   color: black;
 }
 
@@ -175,4 +175,10 @@
 .radio_box input {
   width: 100px;
   height: 100px;
+}
+
+.send {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
 }

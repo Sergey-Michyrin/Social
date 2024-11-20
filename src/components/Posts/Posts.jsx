@@ -24,7 +24,7 @@ let add_post = ()=>{
            
 
 
-{/*РАБОТА С ВВЕДЁНРЫМ ТЕКСТОМ */}
+{/*РАБОТА С ВВЕДЁНЫМ ТЕКСТОМ */}
 let posts_change = ()=>{
   PostsChange(text.current.value);
 }
@@ -34,9 +34,11 @@ return (
     
   <div className={style.posts}>
   {/* ПОЛЕ ВВОДА И ОТПРАВКИ ПОСТОВ */}
-    <p>Мои посты</p>
-    <textarea  onChange={posts_change} type="text" ref = {text} placeholder="Введите текст поста (не менее 50 символов)" value={posts_text}/>
-    <button onClick={add_post} >Опубликовать пост</button>
+    
+      <p>Мои посты</p>
+      <textarea  onChange={posts_change} type="text" ref = {text} placeholder="Введите текст поста (не менее 50 символов)" value={posts_text}/>
+      <button onClick={add_post} >Опубликовать пост</button>
+   
   {/* КОНЕЦ */}
 
 
@@ -65,30 +67,31 @@ return (
   <div className={style.checkbox_cont}>
       <input  ref={seeing} type="checkbox" id="qwerty"/>
       <label  htmlFor="qwerty"   >Видны только друзьям</label>
+     
   </div>
 
   {/* КОНЕЦ */}
 
 
 
-{view_mode==="Общий доступ" ? (posts.posts_data
-.filter((i) => i.seeing===true)
-.map((i, idx) => {
-            
-            return <Post key={idx} text={i.text} img={i.img} likes={i.likes}  dop_text={i.dop_text}  />
-            
-                          }
-          )):(posts.posts_data
-            
-            
-            .map((i, idx) => {
-                        
-                        return <Post key={idx} text={i.text} img={i.img} likes={i.likes}  dop_text={i.dop_text} />
-                        
-                                      }
-                      ))
+  {view_mode==="Общий доступ" ? (posts.posts_data
+  .filter((i) => i.seeing===true)
+  .map((i, idx) => {
+              
+              return <Post key={idx} text={i.text} img={i.img} likes={i.likes}  dop_text={i.dop_text}  />
+              
+                            }
+            )):(posts.posts_data
+              
+              
+              .map((i, idx) => {
+                          
+                          return <Post key={idx} text={i.text} img={i.img} likes={i.likes}  dop_text={i.dop_text} />
+                          
+                                        }
+                        ))
 
-          }
+            }
 </div> 
 
 
