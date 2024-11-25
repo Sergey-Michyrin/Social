@@ -12,7 +12,7 @@ const [view_mode, setPosts]  = useState("Общий доступ");
 const [test, testFunction] = useState(true);
 
 
-
+console.log(addPost);
 {/*ФУНКЦИЯ ДОБАВЛЕНИЕ ПОСТА */}
 let add_post = ()=>{
     if(text.current.value.length >=1){
@@ -42,8 +42,7 @@ return (
   {/* КОНЕЦ */}
 
 
-    <button onClick={()=>testFunction(!test)} >Тест</button>
-    <button onClick={()=>console.log(test)} >Тест</button>
+
 
   {/* Радио-боксы выбранной фильтрации постов */}
 

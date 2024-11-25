@@ -7,31 +7,29 @@ import Users from "./components/Users/Users.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App({
-  dialog_data,
-  dialog_messages,
-  posts_posts,
-  addPost,
+  state,
+
   addMessages,
   PostsChange,
-  posts_text,
   MessageChange,
-  text_message,
+  addPost,
 }) {
+  console.log(state);
   return (
     <BrowserRouter>
       <div className="container">
         <Header />
-        {<Navbar friends={dialog_data} />}
+        {<Navbar friends={state.dialogs_data.data} />}
         <Routes>
           <Route
             exact
             path="/"
             element={
               <Profile
-                posts={posts_posts}
+                posts={state.posts}
                 addPost={addPost}
                 PostsChange={PostsChange}
-                posts_text={posts_text}
+                posts_text={state.posts_text}
               />
             }
           />
@@ -39,10 +37,10 @@ function App({
             path="/Profile"
             element={
               <Profile
-                posts={posts_posts}
+                posts={state.posts}
                 addPost={addPost}
                 PostsChange={PostsChange}
-                posts_text={posts_text}
+                posts_text={state.posts_text}
               />
             }
           />
@@ -50,15 +48,18 @@ function App({
             path="/Message"
             element={
               <Dialogs
-                data={dialog_data}
-                messages={dialog_messages}
+                data={state.dialogs_data.data}
+                messages={state.dialogs_data.messages}
+                text_message={state.dialogs_data.text_message}
                 addMessages={addMessages}
                 MessageChange={MessageChange}
-                text_message={text_message}
               />
             }
           />
-          <Route path="/Users" element={<Users users={dialog_data} />} />
+          <Route
+            path="/Users"
+            element={<Users users={state.dialogs_data.data} />}
+          />
         </Routes>
       </div>
     </BrowserRouter>
