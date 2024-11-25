@@ -14,7 +14,6 @@ function App({
   MessageChange,
   addPost,
 }) {
-  console.log(state);
   return (
     <BrowserRouter>
       <div className="container">

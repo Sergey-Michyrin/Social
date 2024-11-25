@@ -110,6 +110,7 @@ let store = {
             message: text,
             id: countMessages};
         this._state.dialogs_data.messages.push(newMessages);
+        console.log(this._state.dialogs_data.messages);
         this.ReRender(this._state);
     },
 
