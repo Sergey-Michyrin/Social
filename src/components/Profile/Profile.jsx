@@ -1,7 +1,7 @@
 import style from "./Profile.module.css";
 import Posts from "../Posts/Posts.jsx";
 
-function Profile({posts, addPost, PostsChange, posts_text}) {
+function Profile({posts,  posts_text,  dispatch}) {
   return (
   <div className={style.profile}>
     <div className={style.profileHeader}>
@@ -20,7 +20,7 @@ function Profile({posts, addPost, PostsChange, posts_text}) {
       </div>
 
 
-      <Posts posts={posts} addPost={addPost} PostsChange={PostsChange} posts_text={posts_text}/>
+      <Posts posts={posts} dispatch={dispatch} posts_text={posts_text}/>
 
 
 

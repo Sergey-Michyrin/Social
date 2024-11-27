@@ -7,16 +7,16 @@ let seeing = React.createRef();
 
 
 
-function Posts({posts, addPost, PostsChange, posts_text}) {
+function Posts({posts, dispatch, posts_text}) {
 const [view_mode, setPosts]  = useState("Общий доступ");
 const [test, testFunction] = useState(true);
 
 
-console.log(addPost);
+
 {/*ФУНКЦИЯ ДОБАВЛЕНИЕ ПОСТА */}
 let add_post = ()=>{
     if(text.current.value.length >=1){
-      addPost(text.current.value, !seeing.current.checked);
+      dispatch({type:"POST-ADD", text:text.current.value, seeing:!seeing.current.checked});
       text.current.value = "";
     }
 };
@@ -26,7 +26,7 @@ let add_post = ()=>{
 
 {/*РАБОТА С ВВЕДЁНЫМ ТЕКСТОМ */}
 let posts_change = ()=>{
-  PostsChange(text.current.value);
+  dispatch({type:"POST-CHANGE", text:text.current.value});
 }
 {/*КОНЕЦ */}
 

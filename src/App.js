@@ -9,10 +9,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App({
   state,
 
-  addMessages,
-  PostsChange,
-  MessageChange,
-  addPost,
+  dispatch,
 }) {
   return (
     <BrowserRouter>
@@ -23,25 +20,11 @@ function App({
           <Route
             exact
             path="/"
-            element={
-              <Profile
-                posts={state.posts}
-                addPost={addPost}
-                PostsChange={PostsChange}
-                posts_text={state.posts_text}
-              />
-            }
+            element={<Profile posts={state.posts} dispatch={dispatch} />}
           />
           <Route
             path="/Profile"
-            element={
-              <Profile
-                posts={state.posts}
-                addPost={addPost}
-                PostsChange={PostsChange}
-                posts_text={state.posts_text}
-              />
-            }
+            element={<Profile posts={state.posts} dispatch={dispatch} />}
           />
           <Route
             path="/Message"
@@ -50,8 +33,7 @@ function App({
                 data={state.dialogs_data.data}
                 messages={state.dialogs_data.messages}
                 text_message={state.dialogs_data.text_message}
-                addMessages={addMessages}
-                MessageChange={MessageChange}
+                dispatch={dispatch}
               />
             }
           />

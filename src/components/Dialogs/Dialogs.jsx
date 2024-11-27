@@ -11,11 +11,11 @@ let text = React.createRef();
 
 
 
-function Dialogs({data, messages, addMessages, MessageChange, text_message}) {
+function Dialogs({data, messages, dispatch}) {
   const [text_mess, setText_mess] = useState("");
       let add_messages = ()=>{
             if(text.current.value.length >=2){
-                  addMessages(text.current.value);
+              dispatch({type:"ADD-MESSAGE", text:text.current.value});
                 
                   // MessageChange(text.current.value = "");
                   setText_mess(text.current.value="");

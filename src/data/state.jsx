@@ -82,53 +82,74 @@ let store = {
         this.ReRender = observer;
     },
 
-    addPost(text, seeing) {
-        countPost++;
-        let dop_text;
-        if (seeing) {
-            dop_text = "Общий доступ";
-        } else {
-            dop_text = "Совершено секретно";
-        }
-        // console.log(state.posts);
-        let newPost = {
-            text: text,
-            img: s,
-            id: countPost,
-            likes: 0,
-            seeing: seeing,
-            dop_text: dop_text
-        };
-        this._state.posts.posts_data.unshift(newPost);
-        // console.log(state.posts.posts_data[0]);
-        this.ReRender(this._state);
+    // addPost(text, seeing) {
+
+    // },
+
+    // addMessages(text) {
+        
+    // },
+
+    // PostsChange(text) {
+        
+    // },
+
+    // MessageChange(text) {
+        
+    // },
+
+    GetState() {
+        return this._state;
     },
 
-    addMessages(text) {
-        countMessages++;
+    dispatch(action) {
+        if (action.type === "POST-ADD") {
+            countPost++;
+            let dop_text;
+            if (action.seeing) {
+                dop_text = "Общий доступ";
+            } else {
+                dop_text = "Совершено секретно";
+            }
+
+            let newPost = {
+                text: action.text,
+                img: s,
+                id: countPost,
+                likes: 0,
+                seeing: action.seeing,
+                dop_text: dop_text
+            };
+            this._state.posts.posts_data.unshift(newPost);
+            this.ReRender(this._state);
+
+           
+        }
+        else if(action.type==="POST-CHANGE") {
+            this._state.posts.post_text = action.text
+            this.ReRender(this._state);
+        }
+
+        else if(action.type==="ADD-MESSAGE") {
+            countMessages++;
         let newMessages = {
-            message: text,
-            id: countMessages};
+            message: action.text,
+            id: countMessages
+        };
         this._state.dialogs_data.messages.push(newMessages);
         console.log(this._state.dialogs_data.messages);
         this.ReRender(this._state);
-    },
+        }
 
-    PostsChange(text) {
-        this._state.posts.post_text = text
+        else if(action.type==="MESSAGE_CHANGES") {
+            this._state.dialogs_data.text_message = action.text
         this.ReRender(this._state);
-    },
+        }
 
-    MessageChange(text) {
-        this._state.dialogs_data.text_message = text
-        this.ReRender(this._state);
-    },
+        
 
-    GetState(){
-        return this._state;
     }
 
 };
 
 export default store;
-
