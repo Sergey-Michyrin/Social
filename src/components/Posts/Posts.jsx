@@ -1,7 +1,12 @@
 import style from "./Posts.module.css";
+
+import {addPostAC} from "../../data/state";
+import {postChangeAC} from "../../data/state";
+
 import Post from "./Post/Post";
 import React, { useState } from "react"
 import {createRef}  from "react"
+
 let text = React.createRef();
 let seeing = React.createRef();
 
@@ -16,7 +21,8 @@ const [test, testFunction] = useState(true);
 {/*ФУНКЦИЯ ДОБАВЛЕНИЕ ПОСТА */}
 let add_post = ()=>{
     if(text.current.value.length >=1){
-      dispatch({type:"POST-ADD", text:text.current.value, seeing:!seeing.current.checked});
+      // dispatch({type:"POST-ADD", text:text.current.value, seeing:!seeing.current.checked});
+      dispatch(addPostAC(text.current.value, !seeing.current.checked));
       text.current.value = "";
     }
 };
@@ -26,10 +32,11 @@ let add_post = ()=>{
 
 {/*РАБОТА С ВВЕДЁНЫМ ТЕКСТОМ */}
 let posts_change = ()=>{
-  dispatch({type:"POST-CHANGE", text:text.current.value});
+  // dispatch({type:"POST-CHANGE", text:text.current.value});
+  dispatch(postChangeAC(text.current.value));
 }
 {/*КОНЕЦ */}
-
+console.log(posts);
 return (
     
   <div className={style.posts}>

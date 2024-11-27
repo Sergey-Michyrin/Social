@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import DialogItem from "./DialogItem/DialogItem";
+
+import {addMeassageAC} from "../../data/state";
+import {messageChangesAC} from "../../data/state";
+
+
+
 import Header from "../Header/Header";
 import style from './Dialogs.module.css';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -15,7 +21,8 @@ function Dialogs({data, messages, dispatch}) {
   const [text_mess, setText_mess] = useState("");
       let add_messages = ()=>{
             if(text.current.value.length >=2){
-              dispatch({type:"ADD-MESSAGE", text:text.current.value});
+              // dispatch({type:"ADD-MESSAGE", text:text.current.value});
+              dispatch(addMeassageAC(text.current.value));
                 
                   // MessageChange(text.current.value = "");
                   setText_mess(text.current.value="");

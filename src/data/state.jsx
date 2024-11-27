@@ -2,8 +2,45 @@ import s from "../img/User.jpg"
 // import ReRender from "../Render";
 let countPost = 3;
 let countMessages = 3;
+const ADD_POST = 'POST-ADD'
+const POST_CHANGE = 'POST-CHANGE'
+const SEND_MESSAGE = 'ADD-MESSAGE'
+const MESSAGE_CHANGE = 'MESSAGE_CHANGES'
 
+
+export let addPostAC = (text, seeing) => {
+    return {
+        type: 'POST-ADD',
+        text:text,
+        seeing: seeing,
+        id: 1
+    }
+}
+
+export let postChangeAC = (text) => {
+    return {
+        type: 'POST-CHANGE',
+        text:text,
+        id: 2
+    }
+}
+
+export let addMeassageAC = (text) => {
+    return {
+        type: 'ADD-MESSAGE',
+        text:text,
+        id: 3
+    }
+}
+
+export let messageChangesAC = () => {
+    return {
+        type: 'MESSAGE_CHANGES',
+        id: 4
+    }
+}
 let store = {
+
     _state: {
         // Первый комонент
         posts: {
@@ -87,15 +124,15 @@ let store = {
     // },
 
     // addMessages(text) {
-        
+
     // },
 
     // PostsChange(text) {
-        
+
     // },
 
     // MessageChange(text) {
-        
+
     // },
 
     GetState() {
@@ -123,32 +160,29 @@ let store = {
             this._state.posts.posts_data.unshift(newPost);
             this.ReRender(this._state);
 
-           
-        }
-        else if(action.type==="POST-CHANGE") {
+
+        } else if (action.type === "POST-CHANGE") {
             this._state.posts.post_text = action.text
+            this.ReRender(this._state);
+        } else if (action.type === "ADD-MESSAGE") {
+            countMessages++;
+            let newMessages = {
+                message: action.text,
+                id: countMessages
+            };
+            this._state.dialogs_data.messages.push(newMessages);
+            console.log(this._state.dialogs_data.messages);
+            this.ReRender(this._state);
+        } else if (action.type === "MESSAGE_CHANGES") {
+            this._state.dialogs_data.text_message = action.text
             this.ReRender(this._state);
         }
 
-        else if(action.type==="ADD-MESSAGE") {
-            countMessages++;
-        let newMessages = {
-            message: action.text,
-            id: countMessages
-        };
-        this._state.dialogs_data.messages.push(newMessages);
-        console.log(this._state.dialogs_data.messages);
-        this.ReRender(this._state);
-        }
 
-        else if(action.type==="MESSAGE_CHANGES") {
-            this._state.dialogs_data.text_message = action.text
-        this.ReRender(this._state);
-        }
 
-        
+    },
 
-    }
+
 
 };
 
