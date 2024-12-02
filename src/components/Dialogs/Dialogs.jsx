@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DialogItem from "./DialogItem/DialogItem";
 
-import {addMeassageAC} from "../../data/state";
+import {addMeassageAC} from "../../data/dialogReduser";
 import {messageChangesAC} from "../../data/state";
 
 

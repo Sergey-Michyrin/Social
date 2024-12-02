@@ -1,49 +1,22 @@
-import s from "../img/User.jpg"
+import s from "../img/User.jpg";
+import profileReduser from "./profileReduser";
+import dialogReduser from "./dialogReduser";
 // import ReRender from "../Render";
-let countPost = 3;
-let countMessages = 3;
-const ADD_POST = 'POST-ADD'
-const POST_CHANGE = 'POST-CHANGE'
-const SEND_MESSAGE = 'ADD-MESSAGE'
-const MESSAGE_CHANGE = 'MESSAGE_CHANGES'
+// let countPost = 3;
+// let countMessages = 3;
 
 
-export let addPostAC = (text, seeing) => {
-    return {
-        type: 'POST-ADD',
-        text:text,
-        seeing: seeing,
-        id: 1
-    }
-}
 
-export let postChangeAC = (text) => {
-    return {
-        type: 'POST-CHANGE',
-        text:text,
-        id: 2
-    }
-}
 
-export let addMeassageAC = (text) => {
-    return {
-        type: 'ADD-MESSAGE',
-        text:text,
-        id: 3
-    }
-}
 
-export let messageChangesAC = () => {
-    return {
-        type: 'MESSAGE_CHANGES',
-        id: 4
-    }
-}
+
 let store = {
-
+    
     _state: {
         // Первый комонент
         posts: {
+            countPost:3,
+            
             posts_data: [{
                     text: "Привет",
                     id: 0,
@@ -82,6 +55,7 @@ let store = {
 
         // Второй комонент
         dialogs_data: {
+            countMessages:3,
             data: [{
                     name: "Валерssssssssss",
                     id: 1
@@ -119,71 +93,49 @@ let store = {
         this.ReRender = observer;
     },
 
-    // addPost(text, seeing) {
-
-    // },
-
-    // addMessages(text) {
-
-    // },
-
-    // PostsChange(text) {
-
-    // },
-
-    // MessageChange(text) {
-
-    // },
 
     GetState() {
         return this._state;
     },
 
     dispatch(action) {
-        if (action.type === "POST-ADD") {
-            countPost++;
-            let dop_text;
-            if (action.seeing) {
-                dop_text = "Общий доступ";
-            } else {
-                dop_text = "Совершено секретно";
-            }
-
-            let newPost = {
-                text: action.text,
-                img: s,
-                id: countPost,
-                likes: 0,
-                seeing: action.seeing,
-                dop_text: dop_text
-            };
-            this._state.posts.posts_data.unshift(newPost);
-            this.ReRender(this._state);
-
-
-        } else if (action.type === "POST-CHANGE") {
-            this._state.posts.post_text = action.text
-            this.ReRender(this._state);
-        } else if (action.type === "ADD-MESSAGE") {
-            countMessages++;
-            let newMessages = {
-                message: action.text,
-                id: countMessages
-            };
-            this._state.dialogs_data.messages.push(newMessages);
-            console.log(this._state.dialogs_data.messages);
-            this.ReRender(this._state);
-        } else if (action.type === "MESSAGE_CHANGES") {
-            this._state.dialogs_data.text_message = action.text
-            this.ReRender(this._state);
-        }
-
-
-
-    },
+        this._state.posts = profileReduser(this._state.posts, action)
+       
+        console.log(this._state.posts);
+        this._state.dialogs_data = dialogReduser(this._state.dialogs_data, action)
+        this.ReRender(this._state);
+                    },
 
 
 
 };
 
 export default store;
+
+
+// if (action.type === "POST-ADD") {
+//     this.countPost++;
+//     console.log(this.countPost);
+//     let dop_text;
+//     if (action.seeing) {
+//         dop_text = "Общий доступ";
+//     } else {
+//         dop_text = "Совершено секретно";
+//     }
+
+//     let newPost = {
+//         text: action.text,
+//         img: s,
+//         id: this.countPost,
+//         likes: 0,
+//         seeing: action.seeing,
+//         dop_text: dop_text
+//     };
+//     this._state.posts.posts_data.unshift(newPost);
+//     this.ReRender(this._state);
+
+
+// } else if (action.type === "POST-CHANGE") {
+//     this._state.posts.post_text = action.text
+//     this.ReRender(this._state);
+// }

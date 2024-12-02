@@ -15,5 +15,5 @@ let ReRender = (store) => {
 };
 ReRender(store_master.GetState());
 store_master.Subscribe(ReRender);
-
+// Попробовать выполнить шпаргалку с ДЗ;
 export default ReRender;

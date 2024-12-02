@@ -1,7 +1,7 @@
 import style from "./Posts.module.css";
 
-import {addPostAC} from "../../data/state";
-import {postChangeAC} from "../../data/state";
+import {addPostAC} from "../../data/profileReduser";
+import {postChangeAC} from "../../data/profileReduser";
 
 import Post from "./Post/Post";
 import React, { useState } from "react"
@@ -36,7 +36,7 @@ let posts_change = ()=>{
   dispatch(postChangeAC(text.current.value));
 }
 {/*КОНЕЦ */}
-console.log(posts);
+// console.log(posts);
 return (
     
   <div className={style.posts}>
@@ -106,6 +106,6 @@ return (
 
 )
 }
-// Реализовать передачу видимости;  Фильтрация видимых постов; Учить UseState(); Не забыть про name  для radio; Залить на Гитхаб.
+
 export default Posts;
 
